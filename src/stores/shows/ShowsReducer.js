@@ -9,16 +9,17 @@ export default class ShowsReducer extends BaseReducer {
     section: 'hot',
     sort: 'viral',
     window: 'all',
-    isLoading:false
+    isLoading: false,
+    currentPage: 0
   };
 
-  [ShowsAction.REQUEST_IMAGE_SHOW](state, action) { 
+  [ShowsAction.REQUEST_IMAGE_SHOW](state, action) {
     return {
       ...state,
       currentItem: action.payload,
     };
   }
-  [ShowsAction.ISLOADING](state, action) { 
+  [ShowsAction.ISLOADING](state, action) {
     return {
       ...state,
       isLoading: action.payload,
@@ -40,6 +41,12 @@ export default class ShowsReducer extends BaseReducer {
     return {
       ...state,
       window: action.payload,
+    };
+  }
+  [ShowsAction.CURRENT_PAGE](state, action) {
+    return {
+      ...state,
+      currentPage: action.payload,
     };
   }
   [ShowsAction.REQUEST_CURRENT_ITEM_DATA_FINISHED](state, action) {

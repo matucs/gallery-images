@@ -7,6 +7,7 @@ export default class ShowsAction {
   static SORT = 'ShowsAction.SORT';
   static WINDOW = 'ShowsAction.WINDOW';
   static ISLOADING = 'ShowsAction.ISLOADING';
+  static CURRENT_PAGE = 'CURRENT_PAGE';
 
   static REQUEST_PHOTO = 'ShowsAction.REQUEST_PHOTO';
   static REQUEST_PHOTO_FINISHED = 'ShowsAction.REQUEST_PHOTO_FINISHED';
@@ -26,7 +27,7 @@ export default class ShowsAction {
       const showId = 3;
       const section = getState().shows.section;
       const sort = getState().shows.sort;
-      const page = 0;
+      const page = getState().shows.currentPage;
       const window = getState().shows.window;
       const showViral = true;
       await ActionUtility.createThunkEffect(dispatch, ShowsAction.REQUEST_PHOTO, ShowsEffect.requestPhoto,

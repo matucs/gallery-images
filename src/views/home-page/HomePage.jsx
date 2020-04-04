@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ShowsAction from '../../stores/shows/ShowsAction';
 import Gallery from './components/gallery/Gallery';
 import MainOverview from './components/main-overview/MainOverview';
-import { Divider, Icon, Header, Dropdown, Button, Segment } from 'semantic-ui-react';
+import { Divider, Icon, Header, Dropdown, Button, Segment, Pagination } from 'semantic-ui-react';
 import LoadingIndicator from '../components/loading-indicator/LoadingIndicator';
 
 
@@ -61,7 +61,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({ type: ShowsAction.ISLOADING, payload: true })
     return dispatch(ShowsAction.requestPhoto())
   },
-  onLoading: (r) => dispatch({ type: ShowsAction.ISLOADING, payload: r })
+  onLoading: (r) => dispatch({ type: ShowsAction.ISLOADING, payload: r }),
+  onPageChange: (r) => {
+    dispatch({ type: ShowsAction.CURRENT_PAGE, payload: r })
+    dispatch({ type: ShowsAction.ISLOADING, payload: true })
+    return dispatch(ShowsAction.requestPhoto())
+  }
 });
 
 class HomePage extends React.PureComponent {
@@ -86,8 +91,18 @@ class HomePage extends React.PureComponent {
             <Dropdown placeholder='window' search selection options={windows}
               onChange={(e, v) => this.props.onWindowChange(v.value, section)} />{'           '}
 
-            <Button onClick={() => this.props.onFilter()}>Filter</Button>
+            <Button onClick={() => this.props.onFilter()}>Filter</Button>{'   '}
           </Segment>
+          <Segment textAlign='center'>
+            <Pagination onPageChange={(e, v) => this.props.onPageChange(v.activePage)}
+              boundaryRange={0}
+              defaultActivePage={1}
+              ellipsisItem={null}
+              firstItem={null}
+              lastItem={null}
+              siblingRange={1}
+              totalPages={20}
+            /></Segment>
           <Divider horizontal={true}>
             <Header as="h4">
               <Icon name="images outline" /> Gallery
