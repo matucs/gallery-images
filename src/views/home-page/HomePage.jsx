@@ -6,26 +6,9 @@ import Gallery from './components/gallery/Gallery';
 import MainOverview from './components/main-overview/MainOverview';
 import { Divider, Icon, Header, Dropdown, Button, Segment, Pagination } from 'semantic-ui-react';
 import LoadingIndicator from '../components/loading-indicator/LoadingIndicator';
+import {sections, sortOptions, windows} from './constants/Ui-constants-data'
 
 
-const sections = [
-  { key: 'hot', text: 'hot', value: 'hot' },
-  { key: 'top', text: 'top', value: 'top' },
-  { key: 'user', text: 'user', value: 'user' },
-]
-const sortOptions = [
-  { key: 'viral', text: 'viral', value: 'viral' },
-  { key: 'top', text: 'top', value: 'top' },
-  { key: 'time', text: 'time', value: 'time' },
-  { key: 'rising ', text: 'rising ', value: 'rising' },
-]
-const windows = [
-  { key: 'day', text: 'day', value: 'day' },
-  { key: 'week', text: 'week', value: 'week' },
-  { key: 'month', text: 'month', value: 'month' },
-  { key: 'year', text: 'year', value: 'year' },
-  { key: 'all', text: 'all', value: 'all' },
-]
 
 const mapStateToProps = (state, ownProps) => ({
   isLoading: state.shows.isLoading,
@@ -101,7 +84,7 @@ class HomePage extends React.PureComponent {
               firstItem={null}
               lastItem={null}
               siblingRange={1}
-              totalPages={20}
+              totalPages={50}
             /></Segment>
           <Divider horizontal={true}>
             <Header as="h4">

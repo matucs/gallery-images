@@ -26,7 +26,7 @@
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "--------------------------------------------------------------------------------------------------------": ""
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": "react-app"
   },

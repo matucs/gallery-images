@@ -35,14 +35,14 @@ export default class ShowsAction {
     };
   }
 
-  static requestPhotoById() {
-    return async (dispatch, getState) => {
-      const currentItem = getState().shows.currentItem;
+  // static requestPhotoById() {
+  //   return async (dispatch, getState) => {
+  //     const currentItem = getState().shows.currentItem;
 
-      await ActionUtility.createThunkEffect(dispatch, ShowsAction.REQUEST_CURRENT_ITEM_DATA,
-        ShowsEffect.requestPhotoById, currentItem.albumId, currentItem.imageId);
-    };
-  }
+  //     await ActionUtility.createThunkEffect(dispatch, ShowsAction.REQUEST_CURRENT_ITEM_DATA,
+  //       ShowsEffect.requestPhotoById, currentItem.albumId, currentItem.imageId);
+  //   };
+  // }
 
   static requestError() {
     return async (dispatch, getState) => {
