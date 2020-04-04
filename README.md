@@ -1,6 +1,8 @@
 ## galley-images
 
 Read the article explaining this code:
+The project has been created using React, Redux, Thunk, Semantic-ui-react.
+The proxy server is created using express.
 
 ![alt text](./appScreenshot.jpg 'App Screenshot')
 
