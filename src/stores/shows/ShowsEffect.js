@@ -1,17 +1,9 @@
 import environment from 'environment';
 import HttpErrorResponseModel from '../../models/HttpErrorResponseModel';
 import HttpUtility from '../../utilities/HttpUtility';
-import ShowModel from './models/shows/ShowModel';
 import PhotoModel from './models/photo/PhotoModel';
-import EffectUtility from '../../utilities/EffectUtility';
 
 export default class ShowsEffect {
-  static async requestShow(showId) {
-    const endpoint = environment.api.shows.replace(':showId', showId);
-
-    return EffectUtility.getToModel(ShowModel, endpoint);
-  }
-
   static async requestPhoto(showId, section = 'hot', sort = 'viral', page = 0, window = 'all', showViral = true) {
     const endpoint = environment.api.gallery.replace(':showId', showId).replace(':section', section)
       .replace(':sort', sort).replace(':page', page)

@@ -61,10 +61,7 @@ export default class ErrorReducer {
       return state;
     }
 
-    /*
-     * At this point the "type" will be a finished action type (e.g. "SomeAction.REQUEST_*_FINISHED").
-     * The payload will be a HttpErrorResponseModel.
-     */
+
     return {
       ...state,
       [type]: payload,
